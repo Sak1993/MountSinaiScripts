@@ -1,0 +1,21 @@
+ml metal
+metal
+SCHEME SAMPLESIZE
+MARKER rsid
+ALLELE Allele1 Allele2
+EFFECT BETA
+FREQ AF_Allele2
+PVALUE p.value
+AVERAGEFREQ ON
+MINMAXFREQ ON
+CUSTOMVARIABLE A2_AC
+LABEL A2_AC AS AC_Allele2
+DEFAULT 6717
+PROCESS /sc/arion/projects/ipm/gottas01/ACEi_project/results/ACEiGWAS.AA.out
+DEFAULT 8011
+PROCESS /sc/arion/projects/ipm/gottas01/ACEi_project/results/ACEiGWASNew.EA.out
+DEFAULT 9925
+PROCESS /sc/arion/projects/ipm/gottas01/ACEi_project/results/ACEiGWASNew.HA.out
+OUT /sc/arion/projects/ipm/gottas01/ACEi_project/results/metal_PaulaGwas .tbl
+ANALYZE HETEROGENEITY
+QUIT

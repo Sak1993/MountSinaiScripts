@@ -1,0 +1,47 @@
+This document provides all the information about the steps we followed using regenie Software.
+
+Created phenofile and covariate files required for regenie anlaysis from the parent phenotype files present in the following path /sc/arion/project/ipm/gottas01/T2D/data.
+
+The parent phenofiles are EA_phenofile.txt, HA_phenofile.txt, AA_phenofile.txt. Using excel we created AA_regeniecovariate.txt,AA_regeniephenofile.txt(duplicates have been removed using excel), EA2.txt(phenofile), EA_regeniecovariate.txt(duplicates have been removed using excel), HA_regenieNoDuplicatescovariate.txt, HA_regenieNoDuplicatesphenofile.txt(duplicates have been removed using excel) 
+
+load regenie into the system ml regenie
+step 1 and step 2 of regenie are included  in the 10_HAregenie.sh script in /sc/arion/projects/ipm/gottas01/T2D/scripts/ folder
+
+To remove variants with minor allele count(mac) in step 1 we use --mac filter in plink2 for all populations(AA,HA,EA)
+
+Below is the step in plink 
+
+load plink module into the system ml plink2/2.3
+
+
+
+plink2 \
+  --bfile my_bed_file \
+  --mac 100 \
+  --write-snplist \
+  --out snps_pass
+
+the snplist files created are AAsnplist.txt(for AA population), snplist.txt(for HA population), EA_snplist.txt(for EA population) all these lists can be found in /sc/arion/projects/ipm/gottas01/T2D/data/ folder 
+
+we use this snplist files in the step 1 of regenie as shown in the 10_HAregenie.sh script 
+
+the format of phenotype file in regenie
+
+FID IID Y1 (Y1 is the phenotype here)
+
+the format of covariate file in regenie
+
+FID IID V1 V2 V3 (V1,V2,V3 are the covariates)
+
+more details about regenie documentation can be found at https://rgcgithub.github.io/regenie/options/#getting-started
+
+the output of the step 1 regenie file is  for AA population AA_out_1.loco, AA_out.log, AA_out_pred.list
+
+AA_out_pred.list is used in the step2 for more details please go through the regenie documentation.
+
+the output of the step 2 regenie file is *_Y1.regenie,*_firth.log 
+
+
+Once we get the step2 results using 11_regenieplots.R script under the /sc/arion/projects/ipm/gottas01/T2D/scripts/ folder manhattan plots can be plotted for different ancestries.
+
+ 

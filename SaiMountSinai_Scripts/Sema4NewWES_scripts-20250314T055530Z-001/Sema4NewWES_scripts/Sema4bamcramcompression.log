@@ -1,0 +1,73 @@
+Sender: LSF System <lsfadmin@lc03e30>
+Subject: Job 89837247: <MyJob1> in cluster <chimera> Done
+
+Job <MyJob1> was submitted from host <li03c04> by user <gottas01> in cluster <chimera> at Wed May 17 13:48:22 2023
+Job was executed on host(s) <8*lc03e30>, in queue <premium>, as user <gottas01> in cluster <chimera> at Wed May 17 13:48:27 2023
+</hpc/users/gottas01> was used as the home directory.
+</sc/arion/projects/ipm/gottas01/Sema4NewWES/scripts> was used as the working directory.
+Started at Wed May 17 13:48:27 2023
+Terminated at Wed May 17 14:29:40 2023
+Results reported at Wed May 17 14:29:40 2023
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+
+#BSUB -J MyJob1
+#BSUB -P acc_ipm
+#BSUB -q premium
+#BSUB -n 8
+#BSUB -W 24:00
+#BSUB -R rusage[mem=4000]
+#BSUB -R span[hosts=1]
+#BSUB -o Sema4bamcramcompression.log
+#BSUB -eo Sema4bamcramcompression.stderr
+#BSUB -L /bin/bash
+
+#Download files from Sema4 AWS Bucket
+#ml awscli
+ml samtools/1.9
+
+#for i in `cat /sc/arion/projects/ipm/gottas01/Sema4list`;
+
+#for i in `/sc/arion/projects/ipm/Sema4QC/WES-QC/received_data/Sema4_032823/Sema4WESRawData/resequenced_samples_WES_v7/*/*.bam`;
+
+#do 
+#aws s3 cp s3://s4-bio-me-delivery-prod/"$i"/ /sc/arion/projects/ipm/Sema4QC/WES-QC/received_data/Sema4_032823/Sema4WESRawData/"$i"/  --recursive --profile sema4 --exclude "*" --include "*.bam" --include "*.bai" --include "*.tsv" --include "*.gvcf.gz" --include "*.vcf.gz" 
+   
+#do aws s3 cp s3://s4-bio-me-delivery-prod/"$i"/ /sc/arion/projects/ipm/gottas01/Sema4NewWES/data/"$i"/ --recursive --profile sema4 --exclude "*" --include "*.bam" --include "*.bai" --include "*.tsv" --include "*.gvcf.gz" --include "*.vcf.gz" --endpoint-url https://s4-bio-me-delivery-prod.s3.amazonaws.com/"$i"/ 
+
+#Compress bam files to cram
+date; samtools view -C -T /sc/arion/projects/ipm/Sema4QC/WES-QC/received_data/Sema4_032823/pVcf_March_2023/genome.fa -o /sc/arion/projects/ipm/Sema4QC/WES-QC/received_data/Sema4_032823/Sema4WESRawData/additional_samples_WES_v7/12010362_10/12010362_10.dedup.recal.cram /sc/arion/projects/ipm/Sema4QC/WES-QC/received_data/Sema4_032823/Sema4WESRawData/additional_samples_WES_v7/12010362_10/12010362_10.dedup.recal.bam; date
+# done 
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   2265.89 sec.
+    Max Memory :                                 269 MB
+    Average Memory :                             174.53 MB
+    Total Requested Memory :                     32000.00 MB
+    Delta Memory :                               31731.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                6
+    Run time :                                   2473 sec.
+    Turnaround time :                            2478 sec.
+
+The output (if any) follows:
+
+Wed May 17 13:48:30 EDT 2023
+Wed May 17 14:29:40 EDT 2023
+
+
+PS:
+
+Read file <Sema4bamcramcompression.stderr> for stderr output of this job.
+

@@ -1,0 +1,15 @@
+INFO [2023-04-03 06:40:27] $x
+INFO [2023-04-03 06:40:27] list(set1, set2)
+INFO [2023-04-03 06:40:27] 
+INFO [2023-04-03 06:40:27] $category.names
+INFO [2023-04-03 06:40:27] c("Regeneron", "Sema4")
+INFO [2023-04-03 06:40:27] 
+INFO [2023-04-03 06:40:27] $filename
+INFO [2023-04-03 06:40:27] [1] "RegSema4Newvenndiagram.png"
+INFO [2023-04-03 06:40:27] 
+INFO [2023-04-03 06:40:27] $print.mode
+INFO [2023-04-03 06:40:27] c("raw", "percent")
+INFO [2023-04-03 06:40:27] 
+INFO [2023-04-03 06:40:27] $output
+INFO [2023-04-03 06:40:27] [1] TRUE
+INFO [2023-04-03 06:40:27] 
